@@ -1,3 +1,9 @@
+local accent_yellow  = "#d8b65f"
+local string_green   = "#5cdb5c"
+local comment_gold   = "#CC8A11"
+local eval_white     = "#c5c5c5"
+local eval_gray      = "#a1a2a1"
+local type_purple    = "#b48ead"
 vim.opt.guicursor = "n-v-c:block"
 
 vim.opt.number = true
@@ -19,31 +25,26 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 
-vim.api.nvim_set_hl(0, "Normal", { fg = "#ffffff" })
+--vim.api.nvim_set_hl(0, "Normal", { fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "Visual", { fg = accent_yellow })
 vim.g.mapleader = " "
 
-local accent_yellow  = "#d8b65f"
-local string_green   = "#5cdb5c"
-local comment_gold   = "#CC8A11"
-local eval_white     = "#c5c5c5"
-local eval_gray      = "#a1a2a1"
-local type_purple    = "#b48ead"
 
-vim.api.nvim_set_hl(0, "Comment", { fg = comment_gold, italic = false })
-vim.api.nvim_set_hl(0, "String",  { fg = string_green,  italic = false })
-vim.api.nvim_set_hl(0, "Type",    { fg = accent_yellow, bold = true })
-vim.api.nvim_set_hl(0, "Keyword", { fg = accent_yellow, bold = true })
-
-vim.api.nvim_set_hl(0, "Variable",   { fg = accent_yellow })
-vim.api.nvim_set_hl(0, "Property",   { fg = accent_yellow })
-vim.api.nvim_set_hl(0, "Constant",   { fg = accent_yellow })
-
-vim.api.nvim_set_hl(0, "Function",   { fg = eval_gray })
-vim.api.nvim_set_hl(0, "Number",   { fg = eval_white })
-vim.api.nvim_set_hl(0, "Boolean",  { fg = eval_white })
-vim.api.nvim_set_hl(0, "Float",    { fg = eval_white })
-vim.api.nvim_set_hl(0, "Identifier", { fg = eval_gray })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#151515" })
+--vim.api.nvim_set_hl(0, "Comment", { fg = comment_gold, italic = false })
+--vim.api.nvim_set_hl(0, "String",  { fg = string_green,  italic = false })
+--vim.api.nvim_set_hl(0, "Type",    { fg = accent_yellow, bold = true })
+--vim.api.nvim_set_hl(0, "Keyword", { fg = accent_yellow, bold = true })
+--
+--vim.api.nvim_set_hl(0, "Variable",   { fg = accent_yellow })
+--vim.api.nvim_set_hl(0, "Property",   { fg = accent_yellow })
+--vim.api.nvim_set_hl(0, "Constant",   { fg = accent_yellow })
+--
+--vim.api.nvim_set_hl(0, "Function",   { fg = eval_gray })
+--vim.api.nvim_set_hl(0, "Number",   { fg = eval_white })
+--vim.api.nvim_set_hl(0, "Boolean",  { fg = eval_white })
+--vim.api.nvim_set_hl(0, "Float",    { fg = eval_white })
+--vim.api.nvim_set_hl(0, "Identifier", { fg = eval_gray })
+--vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#151515" })
 
 vim.g.zenbones_solid_line_nr = true
 vim.g.zenbones_lighten_line_nr = 45

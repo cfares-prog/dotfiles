@@ -32,17 +32,30 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-sysupdate(){
-sudo sh -c 'apt update && apt upgrade -y'
-}
 export EDITOR="nvim"
 
-
+autoload -Uz colors && colors
 setopt PROMPT_SUBST
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '(%b)'
+_git_prompt() {
+  local branch git_status
 
-precmd() { vcs_info }
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null) ||
+    branch=$(git describe --tags --exact-match 2>/dev/null)
 
-PROMPT='%F{green}%~%f %F{indigo}${vcs_info_msg_0_}%f ❯ '
+  [[ -z "$branch" ]] && return
+
+  git_status=""
+  [[ -n "$(git status --porcelain 2>/dev/null)" ]] &&
+    git_status=" %F{yellow}✗%f"
+
+  print -n " %F{green} ${branch}%f${git_status}"
+}
+
+_precmd_prompt() {
+  PROMPT=" %F{green}%~%f"
+  PROMPT+='$(_git_prompt)'
+  PROMPT+="%F{white}❯%f "
+}
+
+precmd_functions+=( _precmd_prompt )

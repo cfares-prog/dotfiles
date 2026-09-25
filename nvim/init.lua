@@ -6,7 +6,6 @@ require("faust.init")
 vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 
-require("ibl").setup()
 
 vim.keymap.set('n', 'K', function()
   local winid = vim.diagnostic.open_float({ focusable = false })
@@ -15,7 +14,7 @@ vim.keymap.set('n', 'K', function()
   end
 end, { desc = "Show hover or diagnostic" })
 
-vim.cmd.colorscheme("koda-dark")
+vim.cmd.colorscheme("pfil")
 require("faust.set")
 
 
