@@ -1,0 +1,208 @@
+* {
+    border: none;
+    border-radius: 0;
+
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-size: 13px;
+
+    min-height: 0;
+}
+
+/* ─────────────────────────────────────────────
+   BAR
+   ───────────────────────────────────────────── */
+
+window#waybar {
+    background: #111318;
+    color: #d8dee9;
+}
+
+/* Keep the entire bar flat */
+tooltip {
+    background: #16191f;
+    border: 1px solid #303640;
+}
+
+tooltip label {
+    color: #d8dee9;
+}
+
+/* ─────────────────────────────────────────────
+   GENERIC MODULES
+   ───────────────────────────────────────────── */
+
+#clock,
+#battery,
+#backlight,
+#network,
+#pulseaudio,
+#bluetooth,
+#custom-power,
+#custom-session,
+#sway-mode {
+    padding: 0 10px;
+}
+
+/* ─────────────────────────────────────────────
+   WORKSPACES
+   ───────────────────────────────────────────── */
+
+#workspaces {
+    margin-left: 4px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #626a78;
+
+    padding: 0 9px;
+    margin: 0;
+
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #d8dee9;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+
+    padding-left: 11px;
+    padding-right: 11px;
+
+    border-bottom: 2px solid #88c0d0;
+}
+
+#workspaces button.urgent {
+    color: #bf616a;
+    border-bottom: 2px solid #bf616a;
+}
+
+#workspaces button.empty {
+    color: #454b55;
+}
+
+/* ─────────────────────────────────────────────
+   Sway MODE
+   ───────────────────────────────────────────── */
+
+#sway-mode {
+    color: #ebcb8b;
+    font-weight: bold;
+}
+
+/* ─────────────────────────────────────────────
+   WINDOW TITLE
+   ───────────────────────────────────────────── */
+
+#window {
+    color: #697180;
+    padding: 0 12px;
+}
+
+/* ─────────────────────────────────────────────
+   AUDIO
+   ───────────────────────────────────────────── */
+
+#pulseaudio {
+    color: #b48ead;
+}
+
+#pulseaudio.muted {
+    color: #bf616a;
+}
+
+/* ─────────────────────────────────────────────
+   BLUETOOTH
+   ───────────────────────────────────────────── */
+
+#bluetooth {
+    color: #81a1c1;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: #59616d;
+}
+
+/* ─────────────────────────────────────────────
+   NETWORK
+   ───────────────────────────────────────────── */
+
+#network {
+    color: #8fbcbb;
+}
+
+#network.disconnected {
+    color: #bf616a;
+}
+
+/* ─────────────────────────────────────────────
+   BRIGHTNESS
+   ───────────────────────────────────────────── */
+
+#backlight {
+    color: #ebcb8b;
+}
+
+/* ─────────────────────────────────────────────
+   BATTERY
+   ───────────────────────────────────────────── */
+
+#battery {
+    color: #a3be8c;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #8fbcbb;
+}
+
+#battery.warning:not(.charging) {
+    color: #d08770;
+}
+
+#battery.critical:not(.charging) {
+    color: #bf616a;
+    font-weight: bold;
+}
+
+/* ─────────────────────────────────────────────
+   POWER
+   ───────────────────────────────────────────── */
+
+#custom-power {
+    color: #d08770;
+}
+
+/* ─────────────────────────────────────────────
+   SESSION
+   ───────────────────────────────────────────── */
+
+#custom-session {
+    color: #FFc1b1;
+}
+
+/* ─────────────────────────────────────────────
+   CLOCK
+   ───────────────────────────────────────────── */
+
+#clock {
+    color: #88c0d0;
+    font-weight: bold;
+
+    padding-right: 14px;
+}
+
+/* ─────────────────────────────────────────────
+   TRAY
+   ───────────────────────────────────────────── */
+
+/*
+ * Deliberately not enabled.
+ *
+ * This keeps the bar focused on Sway/system state
+ * rather than turning the right side into an app tray.
+ */

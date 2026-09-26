@@ -1,0 +1,203 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "height":38,
+    "spacing": 0,
+
+    "modules-left": [
+        "sway/workspaces",
+        "custom/separator",
+        "sway/mode",
+        "sway/window"
+    ],
+
+    "modules-center": [
+        "custom/separator",
+        "clock",
+        "custom/separator"
+    ],
+
+    "modules-right": [
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "bluetooth",
+        "custom/separator",
+        "network",
+        "custom/separator",
+        "backlight",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "custom/session"
+    ],
+
+    // ─────────────────────────────────────────────
+    // WORKSPACES
+    // ─────────────────────────────────────────────
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+
+        // Named workspaces are shown directly.
+        // Example: "1: terminal" -> "terminal"
+        "format": "{name}",
+
+        "format-icons": {
+            "focused": "●",
+            "active": "●",
+            "urgent": "!",
+            "default": ""
+        }
+    },
+
+    "sway/mode": {
+        "format": "| {mode}",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 70,
+        "tooltip": false
+    },
+
+    // ─────────────────────────────────────────────
+    // AUDIO — PulseAudio + Pavucontrol
+    // ─────────────────────────────────────────────
+
+    "pulseaudio": {
+        "scroll-step": 2,
+
+        "format": "{icon} {volume}%",
+        "format-muted": " muted",
+
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": " muted ",
+
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+
+        "tooltip-format": "Output: {desc}\nVolume: {volume}%",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    // ─────────────────────────────────────────────
+    // BLUETOOTH — Blueman
+    // ─────────────────────────────────────────────
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": " off",
+        "format-off": " off",
+        "format-no-controller": "",
+
+        "format-connected": " {num_connections}",
+        "format-connected-battery": " {device_battery_percentage}%",
+
+        "tooltip-format": "{controller_alias}\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
+
+        "on-click": "blueman-manager"
+    },
+
+    // ─────────────────────────────────────────────
+    // NETWORK
+    // ─────────────────────────────────────────────
+
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-linked": "󰈀 no IP",
+        "format-disconnected": "󰤮 offline",
+
+        "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+
+        "on-click": "nm-connection-editor"
+    },
+
+    // ─────────────────────────────────────────────
+    // BACKLIGHT
+    // ─────────────────────────────────────────────
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+
+        "tooltip-format": "Brightness: {percent}%"
+    },
+
+    // ─────────────────────────────────────────────
+    // BATTERY
+    // ─────────────────────────────────────────────
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+
+        "format-plugged": " {capacity}%",
+
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+
+        "format-alt": "{time} {icon}",
+
+        "tooltip-format": "{capacity}%\n{time} remaining"
+    },
+
+    "custom/session": {
+        "format": "faust 󰐥",
+        "tooltip": true,
+        "tooltip-format": "Session: {output}\nClick to open session logout",
+        "on-click": "wlogout"
+    },
+
+    "custom/separator": {
+        "format": "│"
+    },
+
+    // ─────────────────────────────────────────────
+    // CLOCK
+    // ─────────────────────────────────────────────
+
+    "clock": {
+        "format": " 󰥔 {:%H:%M}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+    }
+}

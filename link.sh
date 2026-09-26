@@ -26,6 +26,7 @@ link_config "$DOTFILES/tmux" "$HOME/.config/tmux"
 link_config "$DOTFILES/emacs/.emacs.d" "$HOME/.emacs.d"
 link_config "$DOTFILES/nvim" "$HOME/.config/nvim"
 link_config "$DOTFILES/kitty" "$HOME/.config/kitty"
+link_config "$DOTFILES/waybar" "$HOME/.config/waybar"
 
 # uncomment if using sway
-# link_config "$DOTFILES/sway" "$HOME/.config/sway"
+link_config "$DOTFILES/sway" "$HOME/.config/sway"

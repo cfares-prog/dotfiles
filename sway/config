@@ -195,7 +195,7 @@ bindsym $mod+r mode "resize"
 
     # Take a screenshot of the whole screen and save it to your Pictures folder
     bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
-    bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym Print exec xfce4-screenshooter ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
     bindsym $mod+Escape exec wlogout
 
 #
@@ -212,7 +212,7 @@ bar {
     swaybar_command waybar
 }
 exec mako
-output * bg ~/Pictures/wallpapers/mecha-nostalgia.png fill
+
 
 # colors
 
